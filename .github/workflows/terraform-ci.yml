@@ -32,11 +32,11 @@ jobs:
         uses: terraform-linters/setup-tflint@v4
         with:
           tflint_version: latest
-
-      - name: TFLint
+            
+      - name: Run TFLint
         run: |
           tflint --init
-          tflint --recursive -f compact
+          tflint --config="${GITHUB_WORKSPACE}/.tflint.hcl" --recursive --format=compact
 
       - name: Checkov (analisis de seguridad IaC)
         uses: bridgecrewio/checkov-action@v12
