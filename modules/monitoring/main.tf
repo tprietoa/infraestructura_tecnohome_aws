@@ -75,10 +75,10 @@ resource "aws_cloudwatch_metric_alarm" "rds_almacenamiento" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "alb_unhealthy" {
-  alarm_name          = "${var.name_prefix}-alarm-alb-unhealthy"
-  alarm_description   = "ALB hosts no sanos (frontend)"
-  namespace           = "AWS/ApplicationELB"
-  metric_name         = "UnHealthyHostCount"
+  alarm_name        = "${var.name_prefix}-alarm-alb-unhealthy"
+  alarm_description = "ALB hosts no sanos (frontend)"
+  namespace         = "AWS/ApplicationELB"
+  metric_name       = "UnHealthyHostCount"
   dimensions = {
     LoadBalancer = var.alb_arn_suffix
     TargetGroup  = var.tg_front_arn_suffix
